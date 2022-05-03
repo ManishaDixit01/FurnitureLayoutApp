@@ -2,12 +2,19 @@ import React from 'react';
 import { useDrag } from 'react-dnd'
 
 
-function FurnitureItem(props) {
+function FurnitureItem({image, alt}) {
+
+    const [{isDragging}, drag] = useDrag(() => ({
+        type: 'chair',
+        collect: monitor => ({
+          isDragging: !!monitor.isDragging(),
+        }),
+      }))
 
     return (
-        <div className="FurnitureItem">
-            <img src={props.image} alt={props.alt}/>
-            <p>{props.alt}</p>
+        <div className="FurnitureItem" ref={drag}>
+            <img src={image} alt={alt}/>
+            <p>{alt}</p>
         </div>
     );
 }

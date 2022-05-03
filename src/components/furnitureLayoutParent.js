@@ -1,12 +1,12 @@
 import React from 'react';
 import { Grid } from '@mui/material'
-import FurnitureList from './furnitureList'
-import FurnitureView from './furnitureView'
+import { FurnitureList } from './furnitureList'
+import { FurnitureView } from './furnitureView'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 
 
-function FurnitureLayoutParent() {
+export const FurnitureLayoutParent = () => {
     return (
         <DndProvider backend={HTML5Backend}>
             <div className="FurnitureLayoutParent">
@@ -25,6 +25,4 @@ function FurnitureLayoutParent() {
             </div>
         </DndProvider>
     );
-}
-
-export default FurnitureLayoutParent;
+};

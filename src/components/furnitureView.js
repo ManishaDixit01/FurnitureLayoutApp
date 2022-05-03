@@ -1,33 +1,35 @@
 import React, {useState} from 'react';
 import roomimage from '../images/roomimg.jpeg'
 import { useDrop } from 'react-dnd'
-import chair from '../images/chair_small.png'
+import chair from '../images/chair.png';
+import table from '../images/table.png';
+import lamp from '../images/lamp.png';
+import sofa from '../images/sofa.png';
 
-
-
-function FurnitureView() {
-
-    
-
-    const[count,setCount]=useState(0)
-
-    const [{ isOver }, drop] = useDrop(() => ({
-        accept: 'chair',
-        drop: () => setCount(count+1),
+export const FurnitureView = () => {
+    const[furnitureList, setFurnitureList]=useState([]);
+    const [{ name }, drop] = useDrop(() => ({
+        accept: 'furniture',
+        drop: monitor => setFurnitureList(oldList => [...oldList, monitor.name]),
         collect: monitor => ({
-          isOver: !!monitor.isOver(),
+          name: !!monitor.name,
         }),
-      }), "")
-
-    
-    
+      }), "");
+    const getItemImage = (furnitureName) => {
+      switch(furnitureName){
+        case 'chair':
+          return chair;
+        case 'table':
+          return table;
+        case 'lamp':
+          return lamp;
+        case 'sofa':
+          return sofa;
+      }
+    };
     return (
         <div className="FurnitureView" ref={drop} style={{ backgroundImage: `url(${roomimage})`,height:'100%',width:'100%'}}>
-           {[...Array(count)].map((item,index)=><img key={index} src={chair} alt="chair"></img>)}
+           {[...furnitureList].map((item,index)=><img key={index} src={getItemImage(item)} alt={item}></img>)}
         </div>
     );
-}
-
-
-
-export default FurnitureView;
+};

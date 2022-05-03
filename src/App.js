@@ -1,6 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-import FurnitureLayoutParent from './components/furnitureLayoutParent';
+import { FurnitureLayoutParent } from './components/furnitureLayoutParent';
 function App() {
   return (
     <div className="App">

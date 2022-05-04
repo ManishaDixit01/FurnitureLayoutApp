@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import roomimage from '../images/roomimg.jpeg'
+import roomimage from '../images/rooming.jpg'
 import { useDrop } from 'react-dnd'
 import chair from '../images/chair.png';
 import table from '../images/table.png';
@@ -28,7 +28,7 @@ export const FurnitureView = () => {
       }
     };
     return (
-        <div className="FurnitureView" ref={drop} style={{ backgroundImage: `url(${roomimage})`,height:'100%',width:'100%'}}>
+        <div className="FurnitureView" ref={drop} style={{ backgroundImage: `url(${roomimage})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover',height:'100%',width:'100%'}}>
            {[...furnitureList].map((item,index)=><img key={index} src={getItemImage(item)} alt={item}></img>)}
         </div>
     );

@@ -15,11 +15,8 @@ export const FurnitureLayoutParent = () => {
                     <Grid item xs={3}>
                         <FurnitureList></FurnitureList>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={8}>
                         <FurnitureView></FurnitureView>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <p>This is Furniture</p>
                     </Grid>
                 </Grid>
             </div>
